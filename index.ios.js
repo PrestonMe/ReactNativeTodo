@@ -2,17 +2,13 @@ import React, { Component } from 'react';
 import { AppRegistry } from 'react-native';
 import { Todo } from './src/app/Todo';
 
-
-const Main = () => (<Todo />);
-// since this is just returning todo we can write the above instead
-
-// class Main extends Component {
-//   render() {
-//     return(
-//       <Todo />
-//     );
-//   }
-// };
+class Main extends Component {
+  render() {
+    return(
+      <Todo />
+    );
+  }
+};
 
 const styles = StyleSheet.create({
   container: {
