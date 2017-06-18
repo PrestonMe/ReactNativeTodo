@@ -1,46 +1,11 @@
 import React, { Component } from 'react';
-import { AppRegistry, StyleSheet, Text, View, TextInput, TouchableHighlight } from 'react-native';
+import { AppRegistry } from 'react-native';
+import { Todo } from './src/app/Todo';
 
-class Todo extends Component {
-  constructor() {
-    super();
-    this.state = {
-      todos: [1,2,3],
-      newTodo: ''
-    }
-  }
-
-  handleChange(e) {
-    const { value } = e.target;
-    this.setState({newTodo: value})
-  }
-
-  handlePress() {
-
-  }
-
+class Main extends Component {
   render() {
     return(
-      <View style={styles.container}>
-        <TextInput value={this.state.newTodo} onChange={this.handleChange.bind(this)} />
-        {/* we can use touchablehighlight like a button/ we use onpress since there is no clicks
-          on mobile devices*/}
-        <TouchableHighlight onPress={this.handlePress.bind(this)}>
-          <Text>Tap Me</Text>
-        </TouchableHighlight>
-        {this.state.todos.map(todo => <Text>{todo}</Text>)}
-      </View>
-      // <View style={styles.container}>
-      //   <Text style={styles.welcome}>
-      //     Welcome to React Native!
-      //   </Text>
-      //   <Text style={styles.intructions}>
-      //     To get started, edit index.android.js
-      //   </Text>
-      //   <Text style={styles.instructions}>
-      //     Shake or press menu button for
-      //   </Text>
-      // </View>
+      <Todo />
     );
   }
 };
