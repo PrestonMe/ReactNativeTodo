@@ -1,0 +1,23 @@
+{
+  "name": "todo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PrestonMecham/ReactNativeTodo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PrestonMecham/ReactNativeTodo/issues"
+  },
+  "homepage": "https://github.com/PrestonMecham/ReactNativeTodo#readme",
+  "dependencies": {
+    "react": "^15.6.1",
+    "react-native": "^0.45.1"
+  }
+}
