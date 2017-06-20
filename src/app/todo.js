@@ -7,7 +7,6 @@ export class _Todo extends Component {
   constructor() {
     super();
     this.state = {
-      todos: [],
       newTodo: ''
     }
   }
@@ -18,6 +17,7 @@ export class _Todo extends Component {
 
   handlePress() {
     this.props.createTodo(this.state.newTodo);
+    this.setState({newTodo: ''})
   }
 
   render() {
@@ -31,7 +31,7 @@ export class _Todo extends Component {
             value={this.state.newTodo}
           />
           <View style={styles.todos}>
-            {this.state.todos.map((todo, i) => (
+            {this.props.todos.map((todo, i) => (
               <View style={styles.todo}>
                 <Text style={styles.todoText} key={i}>{todo}</Text>
               </View>
@@ -47,6 +47,10 @@ const mapActionsToProps = (dispatch) => ({
   createTodo(toDo) {
     dispatch({type: 'CREATE_TODO', payload: todo})
   }
+})
+
+const mapStateToProps = (state) => ({
+  todos: state.todos
 })
 
 // connect _Todo component to redux and attach actions to props
