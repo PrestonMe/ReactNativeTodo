@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
-import Reddit from './reddit';
 import TodoForm from './todoform';
-import { Connect } from 'react-redux';
+import { connect } from 'react-redux';
 
-export class Todo extends Component {
+export class _Todo extends Component {
   constructor() {
     super();
     this.state = {
@@ -13,36 +12,12 @@ export class Todo extends Component {
     }
   }
 
-  componentWillMount() {
-    fetch('http://localhost:3000/todos', {
-      headers: {
-        'Accept': 'application/json'
-      }
-    })
-    .then(res => res.json())
-    .then(todos => this.setState({todos}))
-  }
-
   handleChange(text) {
     this.setState({newTodo: text});
   }
 
   handlePress() {
-    fetch('http://localhost:3000/todos', {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        name: this.state.newTodo
-      })
-    })
-    .then(res => res.json())
-    .then(data => {
-      const todos = [...this.state.todos, data];
-      this.setState({todos, newTodo: ''});
-    })
+    this.props.createTodo(this.state.newTodo);
   }
 
   render() {
@@ -67,6 +42,15 @@ export class Todo extends Component {
     );
   }
 }
+
+const mapActionsToProps = (dispatch) => ({
+  createTodo(toDo) {
+    dispatch({type: 'CREATE_TODO', payload: todo})
+  }
+})
+
+// connect _Todo component to redux and attach actions to props
+export const Todo = connect(null, mapActionsToProps)(_Todo);
 
 const styles = StyleSheet.create({
   container: {

@@ -3,6 +3,7 @@ import { AppRegistry, StyleSheet } from 'react-native';
 import { Todo } from './src/app/Todo';
 import { Fancy } from './src/app/fancy';
 import { Reddit } from './src/app/reddit';
+import { Main as Root } from './src/app/main';
 // Provider pretty much supplies the store to our components
 import { Provider } from 'react-redux';
 import { store } from './src/store';
@@ -10,7 +11,7 @@ import { store } from './src/store';
 const Main = () => (
   // Now every child of todo has access to the store
   <Provider store={store}>
-    <Todo />
+    <Root />
   </Provider>
 );
 
