@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import { AppRegistry } from 'react-native';
 import { Todo } from './src/app/Todo';
 import { Fancy } from './src/app/fancy';
+import { Reddit } from './src/app/reddit';
 
 
-const Main = () => (<Todo />);
+const Main = () => (<Reddit />);
 // const Main = () => (<Fancy />);
 // since this is just returning todo we can write the above instead
 
