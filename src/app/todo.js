@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 import Reddit from './reddit';
+import TodoForm from './todoform';
+import { Connect } from 'react-redux';
 
 export class Todo extends Component {
   constructor() {
@@ -48,16 +50,11 @@ export class Todo extends Component {
       <View styles={styles.container}>
         <Reddit />
         <View>
-          <View style={styles.form}>
-            <TextInput
-              style={styles.input}
-              value={this.state.newTodo}
-              onChangeText={this.handleChange.bind(this)}
-            />
-            <TouchableOpacity style={styles.button} onPress={this.handlePress.bind(this)}>
-              <Text style={styles.buttonText}>Create</Text>
-            </TouchableOpacity>
-          </View>
+          <TodoForm
+            handlePress={this.handlePress.bind(this)}
+            handleChange={this.handleChange.bind(this)}
+            value={this.state.newTodo}
+          />
           <View style={styles.todos}>
             {this.state.todos.map((todo, i) => (
               <View style={styles.todo}>
