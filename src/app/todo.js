@@ -12,19 +12,30 @@ export class Todo extends Component {
     }
   }
 
+  componentWillMount() {
+    fetch('http://localhost:3000/todos', {
+      headers: {
+        'Accept': 'application/json'
+      }
+    })
+    .then(res => res.json())
+    .then(todos => this.setState({todos}))
+  }
+
   handleChange(text) {
     this.setState({newTodo: text});
   }
 
   handlePress() {
     fetch('http://localhost:3000/todos', {
-      method: 'post',
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
       body: JSON.stringify({
         name: this.state.newTodo
-      }),
-      headers: {
-        'Content-Type': 'application/json'
-      }
+      })
     })
     .then(res => res.json())
     .then(data => {
