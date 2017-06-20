@@ -4,6 +4,9 @@ import TodoForm from './todoform';
 import { connect } from 'react-redux';
 
 export class _Todo extends Component {
+  static defaultProps = {
+    todos: []
+  }
   constructor() {
     super();
     this.state = {
@@ -54,7 +57,7 @@ const mapStateToProps = (state) => ({
 })
 
 // connect _Todo component to redux and attach actions to props
-export const Todo = connect(null, mapActionsToProps)(_Todo);
+export const Todo = connect(mapStateToProps, mapActionsToProps)(_Todo);
 
 const styles = StyleSheet.create({
   container: {
