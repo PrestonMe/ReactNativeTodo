@@ -3,19 +3,15 @@ import { AppRegistry } from 'react-native';
 import { Todo } from './src/app/Todo';
 import { Fancy } from './src/app/fancy';
 import { Reddit } from './src/app/reddit';
+// Provider pretty much supplies the store to our components
+import { Provider } from 'react-redux';
+import { store } from './src/app/store';
 
-
-const Main = () => (<Reddit />);
-// const Main = () => (<Fancy />);
-// since this is just returning todo we can write the above instead
-
-// class Main extends Component {
-//   render() {
-//     return(
-//       <Todo />
-//     );
-//   }
-// };
+const Main = () => (
+  <Provider store={store}>
+    <Todo />
+  </Provider>
+);
 
 const styles = StyleSheet.create({
   container: {
