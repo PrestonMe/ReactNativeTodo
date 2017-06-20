@@ -17,7 +17,8 @@
   },
   "homepage": "https://github.com/PrestonMecham/ReactNativeTodo#readme",
   "dependencies": {
-    "react": "^15.6.1",
+    "json-server": "^0.10.1",
+    "react": "16.0.0-alpha.12",
     "react-native": "^0.45.1"
   }
 }
