@@ -1,7 +1,6 @@
-// You always have to import React at the top of your file even if you don't use it
-// because it is not global
 import React, { Component } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
+import Reddit from './reddit';
 
 export class Todo extends Component {
   constructor() {
@@ -47,6 +46,7 @@ export class Todo extends Component {
   render() {
     return (
       <View styles={styles.container}>
+        <Reddit />
         <View>
           <View style={styles.form}>
             <TextInput

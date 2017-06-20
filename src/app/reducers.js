@@ -1,10 +1,13 @@
 // reducers are pure functions with no side affects, it takes a state, performs an action and returns
 // a new state
+import { combineReducers } from 'redux';
 
 const FETCH_POSTS = 'FETCH_POSTS';
 const FETCH_POSTS_COMPLETE = 'FETCH_POSTS_COMPLETE';
-
-export const reddit = (state = [], action) => {
+export const reddit = (state = [
+  {name: 'demo'},
+  {name: 'hello'}
+], action) => {
   switch (action.type) {
     case FETCH_POSTS:
       return state;
@@ -14,3 +17,5 @@ export const reddit = (state = [], action) => {
       return state;
   }
 };
+
+export const reducer = combineReducers({reddit});
